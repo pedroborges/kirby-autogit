@@ -1,0 +1,5 @@
+{
+    "require": {
+        "sebastian/git": "^2.1"
+    }
+}

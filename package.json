@@ -1,7 +1,7 @@
 {
   "name": "autogit",
   "author": "Pedro Borges <oi@pedroborg.es>",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Kirby Auto Git Plugin",
   "type": "kirby-plugin",
   "license": "MIT"

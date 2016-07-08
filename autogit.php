@@ -12,9 +12,7 @@
 
 if (class_exists('Panel') or r::has('secret')) {
     // Load classes
-    require_once(__DIR__ . DS . 'vendor' . DS . 'git' . DS . 'src' . DS . 'Git.php');
-    require_once(__DIR__ . DS . 'vendor' . DS . 'git' . DS . 'src' . DS . 'Exception' . DS . 'Exception.php');
-    require_once(__DIR__ . DS . 'vendor' . DS . 'git' . DS . 'src' . DS . 'Exception' . DS . 'RuntimeException.php');
+    require_once(__DIR__ . DS . 'vendor' . DS . 'autoload.php');
     require_once(__DIR__ . DS . 'lib' . DS . 'autogit.php');
 
     // Load hooks
