@@ -1,0 +1,8 @@
+{
+  "name": "autogit",
+  "author": "Pedro Borges <oi@pedroborg.es>",
+  "version": "0.1.0",
+  "description": "Kirby Auto Git Plugin",
+  "type": "kirby-plugin",
+  "license": "MIT"
+}

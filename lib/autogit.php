@@ -1,0 +1,88 @@
+<?php
+
+namespace Autogit;
+
+use SebastianBergmann\Git\Git;
+use C;
+
+class Autogit extends Git
+{
+    protected $localBranch;
+
+    public function __construct()
+    {
+        parent::__construct(kirby()->roots()->content());
+
+        $this->localBranch = c::get('autogit.branch', 'master');
+
+        $this->setBranch();
+        $this->setUser(site()->user());
+    }
+
+    public static function save(...$params)
+    {
+        $git = new self;
+
+        $message = $git->getMessage($params[0], array_slice($params, 1));
+
+        $git->add();
+        $git->commit($message);
+    }
+
+    public function add($path = false)
+    {
+        $path = $path ? $path : kirby()->roots()->content();
+        $this->execute('add '.escapeshellarg($path));
+    }
+
+    public function commit($message)
+    {
+        $this->execute('commit -m '.escapeshellarg($message));
+    }
+
+    public function setBranch($branch = false)
+    {
+        $branch = $branch ? $branch : c::get('autogit.branch', 'master');
+        $this->execute("checkout -q '{$branch}'");
+    }
+
+    protected function setUser($user)
+    {
+        $preferUser = c::get('autogit.panel.user', true);
+        $gitUser = c::get('autogit.user.name', 'Kirby Auto Git');
+        $gitEmail = c::get('autogit.user.email', 'autogit@localhost');
+
+        if ($preferUser and $user and $user->firstname()) {
+            $gitUser = $user->firstname();
+
+            if ($user->lastname()) {
+                $gitUser .= ' '.$user->lastname();
+            }
+
+            $gitEmail = $user->email();
+        }
+
+        $this->execute("config user.name '{$gitUser}'");
+        $this->execute("config user.email '{$gitEmail}'");
+    }
+
+    protected function getMessage($key, $params)
+    {
+        $translation = c::get('autogit.translation', false);
+
+        if (! $translation) {
+            $translations = require __DIR__.DS.'translations.php';
+            $language = kirby()->option('panel.language', 'en');
+
+            if (! array_key_exists($language, $translations)) {
+                $language = 'en';
+            }
+
+            $translation = $translations[$language];
+        }
+
+        array_unshift($params, $translation[$key]);
+
+        return sprintf(...$params);
+    }
+}
