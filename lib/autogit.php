@@ -8,12 +8,16 @@ use C;
 class Autogit extends Git
 {
     protected $localBranch;
+    protected $remoteBranch;
+    protected $remoteName;
 
     public function __construct()
     {
         parent::__construct(kirby()->roots()->content());
 
-        $this->localBranch = c::get('autogit.branch', 'master');
+        $this->localBranch  = c::get('autogit.branch', 'master');
+        $this->remoteBranch = c::get('autogit.remote.branch', $this->localBranch);
+        $this->remoteName   = c::get('autogit.remote.name', 'origin');
 
         $this->setBranch();
         $this->setUser(site()->user());
@@ -38,6 +42,16 @@ class Autogit extends Git
     public function commit($message)
     {
         $this->execute('commit -m '.escapeshellarg($message));
+    }
+
+    public function pull()
+    {
+        $this->execute("pull {$this->remoteName} {$this->remoteBranch}");
+    }
+
+    public function push()
+    {
+        $this->execute("push {$this->remoteName} {$this->remoteBranch}");
     }
 
     public function setBranch($branch = false)
