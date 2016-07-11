@@ -63,21 +63,21 @@ class Autogit extends Git
     protected function setUser($user)
     {
         $preferUser = c::get('autogit.panel.user', true);
-        $gitUser = c::get('autogit.user.name', 'Kirby Auto Git');
-        $gitEmail = c::get('autogit.user.email', 'autogit@localhost');
+        $userName = c::get('autogit.user.name', 'Kirby Auto Git');
+        $userEmail = c::get('autogit.user.email', 'autogit@localhost');
 
         if ($preferUser and $user and $user->firstname()) {
-            $gitUser = $user->firstname();
+            $userName = $user->firstname();
 
             if ($user->lastname()) {
-                $gitUser .= ' '.$user->lastname();
+                $userName .= ' '.$user->lastname();
             }
 
-            $gitEmail = $user->email();
+            $userEmail = $user->email();
         }
 
-        $this->execute("config user.name '{$gitUser}'");
-        $this->execute("config user.email '{$gitEmail}'");
+        $this->execute("config user.name '{$userName}'");
+        $this->execute("config user.email '{$userEmail}'");
     }
 
     protected function getMessage($key, $params)
