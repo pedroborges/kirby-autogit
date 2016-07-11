@@ -1,9 +1,6 @@
 # Kirby Auto Git Plugin [![Release](https://img.shields.io/github/release/pedroborges/kirby-autogit.svg)](https://github.com/pedroborges/kirby-autogit/releases) [![Issues](https://img.shields.io/github/issues/pedroborges/kirby-autogit.svg)](https://github.com/pedroborges/kirby-autogit/issues)
 
-## Requirements
-- Git
-- Kirby 2.2.3+
-- PHP 5.6+
+Auto Git plugin creates a Git commit every time a content is changed via Kirby's panel… And bit more than that!
 
 ## Main features
 - Works on any Kirby structure
@@ -11,6 +8,11 @@
 - Webhooks for pull and push events
 - Localized commit messages
 - Panel user as commit author
+
+## Requirements
+- Git
+- Kirby 2.2.3+
+- PHP 5.6+
 
 ## Installation
 
