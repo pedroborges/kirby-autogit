@@ -1,6 +1,7 @@
 # Kirby Auto Git Plugin [![Release](https://img.shields.io/github/release/pedroborges/kirby-autogit.svg)](https://github.com/pedroborges/kirby-autogit/releases) [![Issues](https://img.shields.io/github/issues/pedroborges/kirby-autogit.svg)](https://github.com/pedroborges/kirby-autogit/issues)
 
 ## Requirements
+- Git
 - Kirby 2.2.3+
 - PHP 5.6+
 
@@ -14,9 +15,11 @@
 ## Installation
 
 ### Site Structure
-You can use whatever site structure fits better your needs. It doesn't matter whether your `content` folder is part of the main Git repo or is a submodule. Auto Git is smart enough to only commit changes made inside the `content` folder.
+You can use whatever site structure fits your needs better. It doesn't matter whether your `content` folder is part of the main Git repo or is a submodule. Auto Git is smart enough to only commit changes made inside the `content` folder.
 
 > Internally Auto Git uses `kirby()->roots()->content()` to detect the `content` folder. It can have whatever name you've registered on your Kirby installation.
+
+> In case there's anything inside the `content` that you don't want to commit, make sure to add it to `.gitignore`.
 
 ### Download
 [Download the files](https://github.com/pedroborges/kirby-autogit/archive/master.zip) and place them inside `site/plugins/autogit`.
@@ -51,7 +54,7 @@ The following options can be set in your `/site/config/config.php`:
 
     c::set('autogit.branch',         'master');
     c::set('autogit.remote.name',    'origin');
-    c::set('autogit.remote.branch',  'master'); // same as autogit.branch option
+    c::set('autogit.remote.branch',  'master');
     c::get('autogit.webhook.secret', false);
     c::get('autogit.webhook.url',    'autogit')
     c::set('autogit.panel.user',     true);
@@ -78,15 +81,15 @@ The following options can be set in your `/site/config/config.php`:
 Sets the Git branch where commits will go to. Auto Git **won't** create the branch for you, make sure it exists prior to changing the default value.
 
 ### autogit.remote.name
-Tells Auto Git which remote repository to use.
+Which remote repository to use. Defaults to `origin`.
 
-> Auto Git won't add a remote repository for you. Add one on your server prior to using this feature.
+> Auto Git won't add the remote repo for you. Add one on your server prior to using this feature.
 
 ### autogit.remote.branch
-Tells Auto Git which remote branch to use when pulling/pushing. In case one is not provided, Auto Git will try to use the same as the local branch.
+Which remote branch to use when pulling/pushing. In case one is not provided, Auto Git will try to use the same branch as the local one.
 
 ### autogit.webhook.secret
-Auto Git provides a webhook which you can use to trigger `pull` and `push` commands from other services. The webhook will be activated **only** if you have defined a `secret`:
+Auto Git provides a webhook which you can use to trigger `pull` and `push` commands from other services. The webhook will be activated **only** when a `secret` has been defined:
 
     // Pick a long string
     c::get('autogit.webhook.secret', 'MySuperSecret16');
@@ -96,7 +99,7 @@ After that, the following URLs will be available to you:
     https://yousite.com/autogit/pull?secret=MySuperSecret16
     https://yousite.com/autogit/push?secret=MySuperSecret16
 
-> Don't forget to pass the `secret` as argument.
+> Don't forget to pass the `secret` as an argument.
 
 To pull changes on your server every time the remote repo receives a new push, go to **your repo** on Bitbucket/Github/Gitlab then navigate to `settings` > `webhooks` > `add webhook` (these steps are almost the same across all providers).
 
@@ -106,7 +109,7 @@ To pull changes on your server every time the remote repo receives a new push, g
 - Status: `active`
 - SSL: `enable` (if your site supports it)
 
-> Alternatively you can use a cron job to run `$ git push` or `$ git pull` frequently.
+> Alternatively you can schedule a cron job to run `$ git push` and/or `$ git pull` frequently.
 
 ### autogit.webhook.url
 Change the webhook URL segment to something else. Defaults to `autogit`.
@@ -132,14 +135,17 @@ Default commit language. You can choose from any of the languages that ships wit
 
 You can also use the `autogit.translation` option to provide a custom translation (see below).
 
-> Feel free to send a pull request to add support for more languages.
+> Other languages are more than welcome. Feel free to send a pull request!
 
 ### autogit.translation
 An array containing a custom translation. This will override the default translation set in `autogit.language`.
 
 ## Roadmap
 - [X] Pull and push webhooks
-- [ ] Panel widget
+- [ ] Panel widget (pull/push buttons)
+- [ ] Panel widget (show commit history)
+- [ ] Panel widget (undo button)
+- [ ] Panel widget (see commit diff)
 
 ## License
 <http://www.opensource.org/licenses/mit-license.php>
