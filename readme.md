@@ -1,13 +1,13 @@
-# Kirby Auto Git Plugin [![Release](https://img.shields.io/github/release/pedroborges/kirby-autogit.svg)](https://github.com/pedroborges/kirby-autogit/releases) [![Issues](https://img.shields.io/github/issues/pedroborges/kirby-autogit.svg)](https://github.com/pedroborges/kirby-autogit/issues)
+# Kirby Auto Git [![Release](https://img.shields.io/github/release/pedroborges/kirby-autogit.svg)](https://github.com/pedroborges/kirby-autogit/releases) [![Issues](https://img.shields.io/github/issues/pedroborges/kirby-autogit.svg)](https://github.com/pedroborges/kirby-autogit/issues)
 
-Auto Git plugin creates a Git commit every time a content is changed via Kirby's panel… And bit more than that!
+Auto Git is a Kirby CMS plugin that commits to a Git repo every time content is changed via Kirby's Panel… It does a few more things too!
 
 ## Main features
 - Works on any Kirby structure
-- Auto commit
-- Webhooks for pull and push events
+- Auto-commit
+- Webhook URLs for pull and push events
 - Localized commit messages
-- Panel user as commit author
+- Uses panel user as commit author
 
 ## Requirements
 - Git
@@ -27,7 +27,7 @@ You can use whatever site structure fits your needs better. It doesn't matter wh
 [Download the files](https://github.com/pedroborges/kirby-autogit/archive/master.zip) and place them inside `site/plugins/autogit`.
 
 ### Kirby CLI
-Kirby's [command line interface](https://github.com/getkirby/cli) makes installing the Auto Git plugin a breeze:
+Kirby's [command line interface](https://github.com/getkirby/cli) makes installing the Auto Git a breeze:
 
     $ kirby plugin:install pedroborges/kirby-autogit
 
@@ -36,12 +36,12 @@ Updating couldn't be any easier, simply run:
     $ kirby plugin:update pedroborges/kirby-autogit
 
 ### Git Submodule
-You can add the Auto Git plugin as a Git submodule.
+You can add the Auto Git as a Git submodule.
 
     $ cd your/project/root
     $ git submodule add https://github.com/pedroborges/kirby-autogit.git site/plugins/autogit
     $ git submodule update --init --recursive
-    $ git commit -am "Add Kirby Auto Git plugin"
+    $ git commit -am "Add Kirby Auto Git"
 
 Updating is as easy as running a few commands.
 
@@ -80,7 +80,7 @@ The following options can be set in your `/site/config/config.php`:
     ]);
 
 ### autogit.branch
-Sets the Git branch where commits will go to. Auto Git **won't** create the branch for you, make sure it exists prior to changing the default value.
+Git branch where commits will go to. If you provide a branch that does not exist, Auto Git will create it for you.
 
 ### autogit.remote.name
 Which remote repository to use. Defaults to `origin`.
@@ -150,7 +150,6 @@ An array containing a custom translation. This will override the default transla
 - [ ] Panel widget (see commit diff)
 
 ## License
-<http://www.opensource.org/licenses/mit-license.php>
+Auto Git is open-sourced software licensed under the [MIT license](http://www.opensource.org/licenses/mit-license.php).
 
-## Author
-Pedro Borges <oi@pedroborg.es>
+Copyright © 2016 Pedro Borges <oi@pedroborg.es>
