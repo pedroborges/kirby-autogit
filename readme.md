@@ -57,8 +57,8 @@ The following options can be set in your `/site/config/config.php`:
     c::set('autogit.branch',         'master');
     c::set('autogit.remote.name',    'origin');
     c::set('autogit.remote.branch',  'master');
-    c::get('autogit.webhook.secret', false);
-    c::get('autogit.webhook.url',    'autogit')
+    c::set('autogit.webhook.secret', false);
+    c::set('autogit.webhook.url',    'autogit')
     c::set('autogit.panel.user',     true);
     c::set('autogit.user.name',      'Auto Git');
     c::set('autogit.user.email',     'autogit@localhost');
