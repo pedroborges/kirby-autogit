@@ -3,6 +3,7 @@
 namespace Autogit;
 
 use SebastianBergmann\Git\Git;
+use SebastianBergmann\Git\Exception;
 use C;
 
 class Autogit extends Git
@@ -61,6 +62,19 @@ class Autogit extends Git
     public function push()
     {
         $this->execute("push {$this->remoteName} {$this->remoteBranch}");
+    }
+
+    public function hasRemote($remoteName = false)
+    {
+        $remoteName = $remoteName ? $remoteName : $this->remoteName;
+
+        try {
+            $this->execute("remote get-url '{$remoteName}'");
+        } catch (Exception $e) {
+            return false;
+        }
+
+        return true;
     }
 
     public function setBranch($branch = false)

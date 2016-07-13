@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [Unreleased]
+### Added
+- Warn user when a remote repo has not been setup yet.
+
 ## [0.4.0] - 2016-07-13
 ### Added
 - Panel widget with pull/push buttons.

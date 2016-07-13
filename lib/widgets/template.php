@@ -9,11 +9,16 @@
   margin-top: .5em;
   text-align: right; }
 
-.autogit-status {
-  display: none;
+.autogit-status, .autogit-warning  {
   margin-bottom: .75em;
   margin-top: .5em;
   text-align: center; }
+
+.autogit-status  {
+  display: none; }
+
+.autogit-warning {
+  color: #b3000a; }
 
 .icon-left.fa-spinner {
   margin-right: .5em;
@@ -35,15 +40,21 @@
 </style>
 
 <div class="autogit-widget">
-  <div class="autogit-status"></div>
-  <button href="/panel/autogit/push" data-action="push" class="btn btn-rounded btn-positive autogit-action">
-    <i class="icon icon-left fa fa-cloud-upload"></i>
-    Publish changes
-  </button>
-  <button href="/panel/autogit/pull" data-action="pull" class="btn btn-rounded btn-positive autogit-action">
-    <i class="icon icon-left fa fa-cloud-download"></i>
-    Get latest changes
-  </button>
+  <?php if (Autogit\Autogit::instance()->hasRemote()) : ?>
+    <div class="autogit-status"></div>
+    <button href="/panel/autogit/push" data-action="push" class="btn btn-rounded btn-positive autogit-action">
+      <i class="icon icon-left fa fa-cloud-upload"></i>
+      Publish changes
+    </button>
+    <button href="/panel/autogit/pull" data-action="pull" class="btn btn-rounded btn-positive autogit-action">
+      <i class="icon icon-left fa fa-cloud-download"></i>
+      Get latest changes
+    </button>
+  <?php else : ?>
+    <div class="autogit-warning">
+      Could not connect to remote repository <strong><?php echo c::get('autogit.remote.name') ?></strong>.
+    </div>
+  <?php endif; ?>
   <footer>Powered by Auto Git</footer>
 </div>
 
