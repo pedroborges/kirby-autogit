@@ -5,6 +5,9 @@ All notable changes to this project will be documented in this file.
 ### Added
 - Warn user when a remote repo has not been setup yet.
 
+### Changed
+- Widget title to "Sync Content"
+
 ## [0.4.0] - 2016-07-13
 ### Added
 - Panel widget with pull/push buttons.
