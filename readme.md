@@ -6,6 +6,7 @@ Auto Git is a Kirby CMS plugin that commits to a Git repo every time content is 
 - Works on any Kirby structure
 - Auto-commit
 - Webhook URLs for pull and push events
+- Panel widget
 - Localized commit messages
 - Uses panel user as commit author
 
@@ -157,7 +158,10 @@ An array containing a custom translation. This will override the default transla
 - [X] Panel widget (pull/push buttons)
 - [ ] Panel widget (show commit history)
 - [ ] Panel widget (undo button)
-- [ ] Panel widget (see commit diff)
+- [ ] Panel widget (show commit diff)
+
+## Change Log
+All notable changes to this project will be documented at: <https://github.com/pedroborges/kirby-autogit/blob/master/changelog.md>
 
 ## License
 Auto Git is open-sourced software licensed under the [MIT license](http://www.opensource.org/licenses/mit-license.php).
