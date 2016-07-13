@@ -9,19 +9,24 @@ kirby()->routes([
         'action'  => function($action) {
             $secretMatches = r::get('secret') === c::get('autogit.webhook.secret');
             $validActions  = ['pull', 'push'];
+            $errorMessage  = 'Something went wrong.';
 
             if (! $secretMatches or ! in_array($action, $validActions)) {
-                return response::error('Something went wrong', 404);
+                return response::error($errorMessage);
             }
 
             try {
-                $repo   = new Autogit();
-                $output = $repo->{$action}();
+                $repo = new Autogit();
+                $repo->{$action}();
             } catch (\Exception $e) {
-                return response::error($e->getMessage());
+                $errorMessage = empty($e->getMessage())
+                    ? $errorMessage
+                    : $e->getMessage();
+
+                return response::error($errorMessage);
             }
 
-            return response::success();
+            return response::success('Done!');
         }
     ]
 ]);
