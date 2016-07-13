@@ -22,4 +22,9 @@ if (class_exists('Panel') or r::has('secret')) {
     if (c::get('autogit.webhook.secret', false)) {
         require_once(__DIR__ . DS . 'lib' . DS . 'routes.php');
     }
+
+    // Load widgets
+    if (c::get('autogit.widget', true)) {
+        require_once(__DIR__ . DS . 'lib' . DS . 'widgets.php');
+    }
 }
