@@ -3,7 +3,7 @@
 /**
  * Kirby Auto Git Plugin
  *
- * @version   0.3.0
+ * @version   0.4.0
  * @author    Pedro Borges <oi@pedroborg.es>
  * @copyright Pedro Borges <oi@pedroborg.es>
  * @link      https://github.com/pedroborges/kirby-autogit

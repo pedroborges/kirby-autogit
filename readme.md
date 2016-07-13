@@ -57,11 +57,16 @@ The following options can be set in your `/site/config/config.php`:
     c::set('autogit.branch',         'master');
     c::set('autogit.remote.name',    'origin');
     c::set('autogit.remote.branch',  'master');
+
     c::set('autogit.webhook.secret', false);
     c::set('autogit.webhook.url',    'autogit')
+
     c::set('autogit.panel.user',     true);
     c::set('autogit.user.name',      'Auto Git');
     c::set('autogit.user.email',     'autogit@localhost');
+
+    c::set('autogit.widget',         true);
+
     c::set('autogit.language',       'en');
     c::set('autogit.translation', [
         'site.update'  => 'Changed site options',
@@ -132,6 +137,11 @@ Default commit author name. Applied only when the option `autogit.panel.user` is
 ### autogit.user.email
 Default commit author email. Applied only when the option `autogit.panel.user` is set to `false` or when user's first name isn't set on his account info.
 
+### autogit.widget
+Auto Git will add a widget to the Panel by default, set this option to false to hide it.
+
+![Auto Git widget](https://raw.githubusercontent.com/pedroborges/kirby-autogit/master/widget.png)
+
 ### autogit.language
 Default commit language. You can choose from any of the languages that ships with Auto Git: `'en'`, `'pt_BR'` or `'pt_PT'`.
 
@@ -144,7 +154,7 @@ An array containing a custom translation. This will override the default transla
 
 ## Roadmap
 - [X] Pull and push webhooks
-- [ ] Panel widget (pull/push buttons)
+- [X] Panel widget (pull/push buttons)
 - [ ] Panel widget (show commit history)
 - [ ] Panel widget (undo button)
 - [ ] Panel widget (see commit diff)
