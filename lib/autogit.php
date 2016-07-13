@@ -7,6 +7,8 @@ use C;
 
 class Autogit extends Git
 {
+    static public $instance;
+
     protected $localBranch;
     protected $remoteBranch;
     protected $remoteName;
@@ -21,16 +23,23 @@ class Autogit extends Git
 
         $this->setBranch();
         $this->setUser(site()->user());
+
+        static::$instance = $this;
+    }
+
+    static public function instance() {
+        if (! is_null(static::$instance)) return static::$instance;
+        return new static;
     }
 
     public static function save(...$params)
     {
-        $git = new self;
+        $repo = self::instance();
 
-        $message = $git->getMessage($params[0], array_slice($params, 1));
+        $message = $repo->getMessage($params[0], array_slice($params, 1));
 
-        $git->add();
-        $git->commit($message);
+        $repo->add();
+        $repo->commit($message);
     }
 
     public function add($path = false)
