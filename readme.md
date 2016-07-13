@@ -80,7 +80,7 @@ The following options can be set in your `/site/config/config.php`:
     ]);
 
 ### autogit.branch
-Git branch where commits will go to. If you provide a branch that does not exist, Auto Git will create it for you.
+Git branch where commits will go to. Auto Git **won't** create the branch for you, make sure it exists prior to changing the default value.
 
 ### autogit.remote.name
 Which remote repository to use. Defaults to `origin`.
