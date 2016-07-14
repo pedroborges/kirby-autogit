@@ -6,14 +6,16 @@ Auto Git is a Kirby CMS plugin that commits to a Git repo every time content is 
 - Works on any Kirby structure
 - Auto-commit
 - Webhook URLs for pull and push events
-- Panel widget
+- Panel widget for pushing/pulling manually
 - Localized commit messages
 - Uses panel user as commit author
 
 ## Requirements
 - Git
-- Kirby 2.2.3+
+- Kirby 2.3.0+
 - PHP 5.6+
+
+> If you can't upgrade to Kirby 2.3.0+ but want to use Auto Git, auto-commit and webhook features should work fine on Kirby 2.1.0+.
 
 ## Installation
 
@@ -60,7 +62,7 @@ The following options can be set in your `/site/config/config.php`:
     c::set('autogit.remote.branch',  'master');
 
     c::set('autogit.webhook.secret', false);
-    c::set('autogit.webhook.url',    'autogit')
+    c::set('autogit.webhook.url',    'autogit');
 
     c::set('autogit.panel.user',     true);
     c::set('autogit.user.name',      'Auto Git');
