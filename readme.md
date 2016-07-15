@@ -9,9 +9,10 @@ Auto Git is a Kirby CMS plugin that commits to a Git repo every time content is 
 - Panel widget for pushing/pulling manually
 - Localized commit messages
 - Uses panel user as commit author
+- Triggers pull and push events
 
 ## Requirements
-- Git 1.8.5+
+- Git
 - Kirby 2.3.0+
 - PHP 5.6+
 
@@ -111,6 +112,8 @@ After that, the following URLs will be available to you:
 
 > Don't forget to pass the `secret` as an argument.
 
+> Webhooks we only be enabled when the remote repository defined in the `autogit.remote.name` option exists. Add one by running `git remote add <name> <url>`.
+
 To pull changes on your server every time the remote repo receives a new push, go to **your repo** on Bitbucket/Github/Gitlab then navigate to `settings` > `webhooks` > `add webhook` (these steps are almost the same across all providers).
 
 - URL: `https://yousite.com/autogit/pull?secret=MySuperSecret16`
@@ -130,7 +133,7 @@ Change the webhook URL segment to something else. Defaults to `autogit`.
 ### autogit.panel.user
 Defines if Auto Git should use Kirby's panel user name and email as commit author. This will enable you to see who made each change on your Git client of choice or simply by running `$ git log`. **The user must have first name and email set on their account info.**
 
-![User detail](https://raw.githubusercontent.com/pedroborges/kirby-autogit/master/account_info.png)
+![User detail](https://raw.githubusercontent.com/pedroborges/kirby-autogit/master/images/account_info.png)
 
 > Options `autogit.user.name` and `autogit.user.email` will be overridden when this is set to `true`.
 
@@ -143,7 +146,9 @@ Default commit author email. Applied only when the option `autogit.panel.user` i
 ### autogit.widget
 Auto Git will add a widget to the Panel by default, set this option to false to hide it.
 
-![Auto Git widget](https://raw.githubusercontent.com/pedroborges/kirby-autogit/master/widget.png)
+![Auto Git widget](https://raw.githubusercontent.com/pedroborges/kirby-autogit/master/images/widget.png)
+
+> In case a remote repository doesn't exist, the widget will only display an error message. Run `git remote add <name> <url>` to enable this feature.
 
 ### autogit.language
 Default commit language. You can choose from any of the languages that ships with Auto Git: `'en'`, `'pt_BR'` or `'pt_PT'`.
@@ -158,6 +163,7 @@ An array containing a custom translation. This will override the default transla
 ## Roadmap
 - [X] Pull and push webhooks
 - [X] Panel widget (pull/push buttons)
+- [X] Trigger pull and push events
 - [ ] Panel widget (show commit history)
 - [ ] Panel widget (undo button)
 - [ ] Panel widget (show commit diff)
