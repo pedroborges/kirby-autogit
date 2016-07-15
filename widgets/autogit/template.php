@@ -9,6 +9,14 @@
   margin-top: .5em;
   text-align: right; }
 
+.autogit-action[disabled] {
+  color: #ddd;
+  cursor: not-allowed;
+  border-color: #ddd; }
+
+.autogit-action[disabled]:hover {
+  background-color: transparent; }
+
 .autogit-status, .autogit-warning  {
   margin-bottom: .75em;
   margin-top: .5em;
@@ -40,8 +48,7 @@
 </style>
 
 <div class="autogit-widget">
-  <?php if (Autogit\Autogit::instance()->hasRemote()) : ?>
-    <div class="autogit-status"></div>
+  <?php if (autogit()->hasRemote()) : ?>
     <button href="/panel/autogit/push" data-action="push" class="btn btn-rounded btn-positive autogit-action">
       <i class="icon icon-left fa fa-cloud-upload"></i>
       Publish changes
@@ -50,9 +57,10 @@
       <i class="icon icon-left fa fa-cloud-download"></i>
       Get latest changes
     </button>
+    <div class="autogit-status"></div>
   <?php else : ?>
     <div class="autogit-warning">
-      Could not connect to remote repository <strong><?php echo c::get('autogit.remote.name') ?></strong>.
+      Could not detect remote repository <strong><?php echo c::get('autogit.remote.name') ?></strong>.
     </div>
   <?php endif; ?>
   <footer>Powered by Auto Git</footer>
@@ -68,10 +76,12 @@
     if (event.target !== this) event.target = this
 
     var $button = $(event.target)
+    var $otherButton = $widget.find('.autogit-action').not(event.target)
     var $defaultIcon = $button.find('.icon')
     var $status = $('.autogit-status')
 
     $button.find('.icon').replaceWith($loadingIcon)
+    $otherButton.prop('disabled', true)
 
     $.post('/panel/autogit/' + $button.data('action'))
       .done(function (res) {
@@ -87,6 +97,7 @@
         setTimeout(function () {
           $button.find('.icon').replaceWith($defaultIcon)
           $button.removeClass('btn-negative').addClass('btn-positive')
+          $otherButton.prop('disabled', false)
           $status.hide(600, function () {
             $(this).text('')
           })

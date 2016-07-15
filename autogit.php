@@ -32,6 +32,6 @@ if (autogit()->isRepo()) {
 
     // Load widgets
     if (c::get('autogit.widget', true)) {
-        require_once(__DIR__ . DS . 'lib' . DS . 'widgets.php');
+        kirby()->set('widget', 'autogit', __DIR__.DS.'widgets'.DS.'autogit');
     }
 }
