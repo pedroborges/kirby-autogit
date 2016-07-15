@@ -1,13 +1,21 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
-## [Unreleased]
+## [0.5.0] - 2016-07-15
 ### Added
-- Warn user when a remote repo has not been setup yet.
+- `autogit()` global function.
+- Auto Git now triggers its own hooks: `autogit.pull` and `autogit.push`.
+- Enable webhooks only when a remote repository has been setup.
+- Show error on the widget when a remote repository has not been setup yet.
 
 ### Changed
+- Allow Auto Git to run on older Git releases.
+- Redirect to error page when webhooks secret mismatches.
+- Show Git errors on the widget when pulling/pushing.
 - Widget title to "Sync Content".
-- Show Git error on the widget when pulling/pushing.
+
+### Fixed
+- Disable button when another action is in progress.
 
 ## [0.4.0] - 2016-07-13
 ### Added
