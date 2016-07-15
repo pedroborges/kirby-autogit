@@ -11,7 +11,7 @@ Auto Git is a Kirby CMS plugin that commits to a Git repo every time content is 
 - Uses panel user as commit author
 
 ## Requirements
-- Git
+- Git 1.8.5+
 - Kirby 2.3.0+
 - PHP 5.6+
 
