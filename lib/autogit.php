@@ -56,12 +56,12 @@ class Autogit extends Git
 
     public function pull()
     {
-        $this->execute("pull {$this->remoteName} {$this->remoteBranch}");
+        $this->execute("pull {$this->remoteName} {$this->remoteBranch} 2>&1");
     }
 
     public function push()
     {
-        $this->execute("push {$this->remoteName} {$this->remoteBranch}");
+        $this->execute("push {$this->remoteName} {$this->remoteBranch} 2>&1");
     }
 
     public function hasRemote($remoteName = false)

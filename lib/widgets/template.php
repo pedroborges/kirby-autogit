@@ -90,7 +90,7 @@
           $status.hide(600, function () {
             $(this).text('')
           })
-        }, 4000)
+        }, 6000)
       })
     })
 </script>

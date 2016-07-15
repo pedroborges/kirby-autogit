@@ -6,7 +6,8 @@ All notable changes to this project will be documented in this file.
 - Warn user when a remote repo has not been setup yet.
 
 ### Changed
-- Widget title to "Sync Content"
+- Widget title to "Sync Content".
+- Show Git error on the widget when pulling/pushing.
 
 ## [0.4.0] - 2016-07-13
 ### Added
