@@ -8,7 +8,7 @@ use C;
 
 class Autogit extends Git
 {
-    static public $instance;
+    static public $instance = null;
 
     protected $localBranch;
     protected $remoteBranch;
@@ -29,8 +29,9 @@ class Autogit extends Git
     }
 
     static public function instance() {
-        if (! is_null(static::$instance)) return static::$instance;
-        return new static;
+        return static::$instance = is_null(static::$instance)
+            ? new static
+            : static::$instance;
     }
 
     public static function save(...$params)
@@ -64,7 +65,18 @@ class Autogit extends Git
         $this->execute("push {$this->remoteName} {$this->remoteBranch} 2>&1");
     }
 
-    public function hasRemote($remoteName = false)
+    public function isRepo($path = null)
+    {
+        try {
+            $this->execute("rev-parse --is-inside-work-tree");
+        } catch (Exception $e) {
+            return false;
+        }
+
+        return true;
+    }
+
+    public function hasRemote($remoteName = null)
     {
         $remoteName = $remoteName ? $remoteName : $this->remoteName;
 
@@ -77,7 +89,7 @@ class Autogit extends Git
         return true;
     }
 
-    public function setBranch($branch = false)
+    public function setBranch($branch = null)
     {
         $branch = $branch ? $branch : c::get('autogit.branch', 'master');
         $this->execute("checkout -q '{$branch}'");
