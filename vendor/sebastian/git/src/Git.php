@@ -126,7 +126,7 @@ class Git
      */
     protected function execute($command)
     {
-        $command = 'git -C ' . escapeshellarg($this->repositoryPath) . ' ' . $command;
+        $command = 'cd ' . escapeshellarg($this->repositoryPath) . ' && git ' . $command;
         if (DIRECTORY_SEPARATOR == '/') {
             $command = 'LC_ALL=en_US.UTF-8 ' . $command;
         }
