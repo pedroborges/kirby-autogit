@@ -26,8 +26,8 @@ if (autogit()->isRepo()) {
     require_once(__DIR__.DS.'lib'.DS.'hooks.php');
 
     // Load routes
-        require_once(__DIR__ . DS . 'lib' . DS . 'routes.php');
     if (c::get('autogit.webhook.secret', false) and autogit()->hasRemote()) {
+        require_once(__DIR__.DS.'lib'.DS.'routes.php');
     }
 
     // Load widgets
