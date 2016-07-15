@@ -23,7 +23,7 @@ function autogit() {
 // the content directory is a Git repo
 if (autogit()->isRepo()) {
     // Load hooks
-    require_once(__DIR__ . DS . 'lib' . DS . 'hooks.php');
+    require_once(__DIR__.DS.'lib'.DS.'hooks.php');
 
     // Load routes
         require_once(__DIR__ . DS . 'lib' . DS . 'routes.php');

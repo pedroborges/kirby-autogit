@@ -34,14 +34,12 @@ class Autogit extends Git
             : static::$instance;
     }
 
-    public static function save(...$params)
+    public function save(...$params)
     {
-        $repo = self::instance();
+        $message = $this->getMessage($params[0], array_slice($params, 1));
 
-        $message = $repo->getMessage($params[0], array_slice($params, 1));
-
-        $repo->add();
-        $repo->commit($message);
+        $this->add();
+        $this->commit($message);
     }
 
     public function add($path = false)
