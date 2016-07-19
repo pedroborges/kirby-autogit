@@ -18,6 +18,22 @@ return [
         'file.delete'  => 'Deleted file %s',
     ],
 
+    'de' => [
+        'site.update'  => 'Seiteneinstellungen geändert',
+        'page.create'  => 'Seite %s erstellt',
+        'page.update'  => 'Seite %s aktualisiert',
+        'page.delete'  => 'Seite %s gelöscht',
+        'page.sort'    => 'Seite %s sortiert',
+        'page.hide'    => 'Seite %s versteckt',
+        'page.move'    => 'Seite %1$s nach %2$s verschoben',
+        'file.upload'  => 'Datei %s hochgeladen',
+        'file.replace' => 'Datei %s ersetzt',
+        'file.rename'  => 'Datei %s umbenannt',
+        'file.update'  => 'Datei %s aktualisiert',
+        'file.sort'    => 'Datei %s sortiert',
+        'file.delete'  => 'Datei %s gelöscht',
+    ],
+
     'pt_BR' => [
         'site.update'  => 'Alterou as opções do site',
         'page.create'  => 'Criou a página %s',
