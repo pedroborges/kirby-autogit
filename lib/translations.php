@@ -65,5 +65,21 @@ return [
         'file.sort'    => 'Alterou a ordem do ficheiro %s',
         'file.delete'  => 'Excluiu o ficheiro %s',
     ],
+    
+    'fr' => [
+        'site.update'  => 'Paramètres du site modifiés',
+        'page.create'  => 'Page %s créee',
+        'page.update'  => 'Page %s modifiée',
+        'page.delete'  => 'Page %s supprimée',
+        'page.sort'    => 'Page %s classée',
+        'page.hide'    => 'Page %s masquée',
+        'page.move'    => 'Page %1$s déplacée vers %2$s',
+        'file.upload'  => 'Fichier %s transféré',
+        'file.replace' => 'Fichier %s remplacé',
+        'file.rename'  => 'Fichier %s renommé',
+        'file.update'  => 'Fichier %s modifié',
+        'file.sort'    => 'Fichier %s classé',
+        'file.delete'  => 'Fichier %s supprimé',
+    ],
 
 ];
