@@ -36,7 +36,7 @@ return [
     
     'fr' => [
         'site.update'  => 'Paramètres du site modifiés',
-        'page.create'  => 'Page %s créee',
+        'page.create'  => 'Page %s créée',
         'page.update'  => 'Page %s modifiée',
         'page.delete'  => 'Page %s supprimée',
         'page.sort'    => 'Page %s classée',
