@@ -81,5 +81,37 @@ return [
         'file.sort'    => 'Alterou a ordem do ficheiro %s',
         'file.delete'  => 'Excluiu o ficheiro %s',
     ],
+    
+    'ru' => [
+        'site.update'  => 'Изменены настройки сайта',
+        'page.create'  => 'Создана страница %s',
+        'page.update'  => 'Обновлена страница %s',
+        'page.delete'  => 'Удалена страница %s',
+        'page.sort'    => 'Отсортирована страница %s',
+        'page.hide'    => 'Спрятано страницу %s',
+        'page.move'    => 'Перемещено страницу %1$s в %2$s',
+        'file.upload'  => 'Загружен файл %s',
+        'file.replace' => 'Изменен файл %s',
+        'file.rename'  => 'Переименован файл %s',
+        'file.update'  => 'Обновлен файл %s',
+        'file.sort'    => 'Отсортирован файл %s',
+        'file.delete'  => 'Удален файл %s',
+    ],
+    
+    'ua' => [
+        'site.update'  => 'Змінено налаштування сайту',
+        'page.create'  => 'Створено сторінку %s',
+        'page.update'  => 'Оновлено сторінку %s',
+        'page.delete'  => 'Видалено сторінку %s',
+        'page.sort'    => 'Відсортовано сторінку %s',
+        'page.hide'    => 'Приховано сторінку %s',
+        'page.move'    => 'Переміщено сторінку %1$s до %2$s',
+        'file.upload'  => 'Завантажено файл %s',
+        'file.replace' => 'Змінено файл %s',
+        'file.rename'  => 'Переймовано файл %s',
+        'file.update'  => 'Оновлено файо %s',
+        'file.sort'    => 'Відсортовано файл %s',
+        'file.delete'  => 'Видалено файл %s',
+    ],
 
 ];
