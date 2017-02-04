@@ -113,5 +113,19 @@ return [
         'file.sort'    => 'Відсортовано файл %s',
         'file.delete'  => 'Видалено файл %s',
     ],
-
+    'nl' => [
+        'site.update'  => 'Site opties aangepast',
+        'page.create'  => 'Pagina %s gecreeërd',
+        'page.update'  => 'Pagina %s geupdate',
+        'page.delete'  => 'Pagina %s verwijdert',
+        'page.sort'    => 'Pagina %s gesorteerd',
+        'page.hide'    => 'Pagina %s verborgen',
+        'page.move'    => 'Pagina %1$s verplaatst naar %2$s',
+        'file.upload'  => 'Bestand %s geupload',
+        'file.replace' => 'Bestand %s vervangen',
+        'file.rename'  => 'Bestand %s hernoemd',
+        'file.update'  => 'Bestand %s bijgewerkt',
+        'file.sort'    => 'Bestand %s gesorteerd',
+        'file.delete'  => 'Bestand %s verwijdert',
+    ],
 ];
