@@ -116,7 +116,7 @@ return [
     'nl' => [
         'site.update'  => 'Site-opties aangepast',
         'page.create'  => 'Pagina %s aangemaakt',
-        'page.update'  => 'Pagina %s geupdate',
+        'page.update'  => 'Pagina %s geüpdate',
         'page.delete'  => 'Pagina %s verwijderd',
         'page.sort'    => 'Pagina %s gesorteerd',
         'page.hide'    => 'Pagina %s verborgen',
