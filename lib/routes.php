@@ -44,7 +44,7 @@ kirby()->routes([
             $secretMatches = r::get('secret') === c::get('autogit.webhook.secret');
             $validActions  = ['pull', 'push'];
 
-            if (! $secretMatches or ! in_array($action, $validActions)) {
+            if (! autogit()->hasRemote() or ! $secretMatches or ! in_array($action, $validActions)) {
                 return go(site()->errorPage());
             }
 

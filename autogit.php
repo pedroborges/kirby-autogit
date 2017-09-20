@@ -19,16 +19,16 @@ function autogit() {
     return Autogit\Autogit::instance();
 }
 
+// Load routes
+if (c::get('autogit.webhook.secret', false)) {
+    require_once(__DIR__.DS.'lib'.DS.'routes.php');
+}
+
 // Only load hooks, routes and widgets when
 // the content directory is a Git repo
-if (autogit()->isRepo()) {
+if (function_exists('panel') && autogit()->isRepo()) {
     // Load hooks
     require_once(__DIR__.DS.'lib'.DS.'hooks.php');
-
-    // Load routes
-    if (c::get('autogit.webhook.secret', false) and autogit()->hasRemote()) {
-        require_once(__DIR__.DS.'lib'.DS.'routes.php');
-    }
 
     // Load widgets
     if (c::get('autogit.widget', true)) {
