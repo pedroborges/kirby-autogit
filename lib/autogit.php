@@ -79,7 +79,7 @@ class Autogit extends Git
         $remoteName = $remoteName ? $remoteName : $this->remoteName;
 
         try {
-            $this->execute("remote get-url '{$remoteName}'");
+            $this->execute('config --get remote.' . $remoteName . '.url');
         } catch (Exception $e) {
             return false;
         }
