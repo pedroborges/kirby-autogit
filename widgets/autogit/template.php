@@ -67,7 +67,7 @@
 </div>
 
 <script>
-  var panelURL = '<?= panel()->urls->index; ?>'
+  var panelURL = '<?php echo panel()->urls->index ?>'
   var $widget = $('#autogit-widget')
   var $loadingIcon = $('<i class="icon icon-left fa fa-spinner" />')
   var $successIcon = $('<i class="icon icon-left fa fa-check" />')
