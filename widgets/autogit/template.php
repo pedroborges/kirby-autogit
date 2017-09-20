@@ -67,6 +67,7 @@
 </div>
 
 <script>
+  var panelURL = '<?= panel()->urls->index; ?>'
   var $widget = $('#autogit-widget')
   var $loadingIcon = $('<i class="icon icon-left fa fa-spinner" />')
   var $successIcon = $('<i class="icon icon-left fa fa-check" />')
@@ -83,7 +84,7 @@
     $button.find('.icon').replaceWith($loadingIcon)
     $otherButton.prop('disabled', true)
 
-    $.post('/panel/autogit/' + $button.data('action'))
+    $.post(panelURL + '/autogit/' + $button.data('action'))
       .done(function (res) {
         $button.find('.icon').replaceWith($successIcon)
         $status.text(res.message).show(600)
