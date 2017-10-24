@@ -51,3 +51,15 @@ kirby()->hook('panel.file.sort', function ($file) {
 kirby()->hook('panel.file.delete', function ($file) {
     autogit()->save('file.delete', $file->page()->uri().'/'.$file->filename());
 });
+
+kirby()->hook('panel.user.update', function ($user) {
+       autogit()->save('user.update', $user->username());
+});
+
+kirby()->hook('panel.user.create', function ($user) {
+       autogit()->save('user.create', $user->username());
+});
+
+kirby()->hook('panel.user.delete', function ($user) {
+       autogit()->save('user.delete', $user->username());
+});
