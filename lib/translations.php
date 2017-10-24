@@ -16,6 +16,9 @@ return [
         'file.update'  => 'Updated file %s',
         'file.sort'    => 'Sorted file %s',
         'file.delete'  => 'Deleted file %s',
+        'user.create'  => 'Created user %s',
+        'user.update'  => 'Updated user %s',
+        'user.delete'  => 'Deleted user %s',
     ],
 
     'de' => [
