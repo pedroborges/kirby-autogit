@@ -10,6 +10,11 @@
  * @license   MIT
  */
 
+if (!c::get('autogit.enable', true)) {
+  // if autogit.enable is set to false, don't load.
+  return;
+}
+
 // Load Auto Git class and dependencies
 require_once(__DIR__.DS.'vendor'.DS.'autoload.php');
 require_once(__DIR__.DS.'lib'.DS.'autogit.php');
