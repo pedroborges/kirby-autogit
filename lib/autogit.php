@@ -45,7 +45,7 @@ class Autogit extends Git
     public function add($path = false)
     {
         $path = $path ? $path : kirby()->roots()->content();
-        $this->execute('add '.escapeshellarg($path));
+        $this->execute('add --all '.escapeshellarg($path));
     }
 
     public function commit($message)
