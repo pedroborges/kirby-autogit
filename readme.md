@@ -135,17 +135,17 @@ Change the webhook URL segment to something else. Defaults to `autogit`.
     c::get('autogit.webhook.url', 'webhook');
 
 ### autogit.panel.user
-Defines if Auto Git should use Kirby's panel user name and email as commit author. This will enable you to see who made each change on your Git client of choice or simply by running `$ git log`. **The user must have first name and email set on their account info.**
+Defines if Auto Git should use Kirby's panel user name and email as commit author. This will enable you to see who made each change in your Git client of choice or simply by running `git log`. **The user must have entered first name and email in their account profile.**
 
 ![User detail](https://raw.githubusercontent.com/pedroborges/kirby-autogit/master/images/account_info.png)
 
 > Options `autogit.user.name` and `autogit.user.email` will be overridden when this is set to `true`.
 
 ### autogit.user.name
-Default commit author name. Applied only when the option `autogit.panel.user` is set to `false` or when user's first name isn't set on his account info.
+Default commit author name. Applied only when the option `autogit.panel.user` is set to `false` or when the user first name is not defined in their account profile.
 
 ### autogit.user.email
-Default commit author email. Applied only when the option `autogit.panel.user` is set to `false` or when user's first name isn't set on his account info.
+Default commit author email. Applied only when the option `autogit.panel.user` is set to `false` or when the user first name is not defined in their account profile.
 
 ### autogit.widget
 Auto Git will add a widget to the Panel by default, set this option to false to hide it.

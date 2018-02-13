@@ -20,8 +20,6 @@ class Autogit extends Git
         $this->remoteBranch = c::get('autogit.remote.branch', 'master');
         $this->remoteName   = c::get('autogit.remote.name', 'origin');
 
-        $this->setUser(site()->user());
-
         static::$instance = $this;
     }
 
@@ -47,7 +45,11 @@ class Autogit extends Git
 
     public function commit($message)
     {
-        $this->execute('commit -m '.escapeshellarg($message));
+        $this->execute(sprintf(
+            'commit --author %s --message %s',
+            escapeshellarg($this->author()),
+            escapeshellarg($message)
+        ));
     }
 
     public function pull()
@@ -84,13 +86,14 @@ class Autogit extends Git
         return true;
     }
 
-    protected function setUser($user)
+    protected function author()
     {
+        $user       = site()->user();
         $preferUser = c::get('autogit.panel.user', true);
-        $userName = c::get('autogit.user.name', 'Kirby Auto Git');
-        $userEmail = c::get('autogit.user.email', 'autogit@localhost');
+        $userName   = c::get('autogit.user.name', 'Kirby Auto Git');
+        $userEmail  = c::get('autogit.user.email', 'autogit@localhost');
 
-        if ($preferUser and $user and $user->firstname()) {
+        if ($preferUser && $user && $user->firstname()) {
             $userName = $user->firstname();
 
             if ($user->lastname()) {
@@ -100,8 +103,7 @@ class Autogit extends Git
             $userEmail = $user->email();
         }
 
-        $this->execute("config user.name '{$userName}'");
-        $this->execute("config user.email '{$userEmail}'");
+        return "{$userName} <{$userEmail}>";
     }
 
     protected function getMessage($key, $params)
