@@ -58,7 +58,6 @@ Updating is as easy as running a few commands.
 ## Options
 The following options can be set in your `/site/config/config.php`:
 
-    c::set('autogit.branch',         'master');
     c::set('autogit.remote.name',    'origin');
     c::set('autogit.remote.branch',  'master');
 
@@ -87,9 +86,6 @@ The following options can be set in your `/site/config/config.php`:
         'file.sort'    => 'Sorted file %s',
         'file.delete'  => 'Deleted file %s',
     ]);
-
-### autogit.branch
-Git branch where commits will go to. Auto Git **won't** create the branch for you, make sure it exists prior to changing the default value.
 
 ### autogit.remote.name
 Which remote repository to use. Defaults to `origin`.

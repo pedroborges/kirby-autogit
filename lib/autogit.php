@@ -10,7 +10,6 @@ class Autogit extends Git
 {
     static public $instance = null;
 
-    protected $localBranch;
     protected $remoteBranch;
     protected $remoteName;
 
@@ -18,11 +17,9 @@ class Autogit extends Git
     {
         parent::__construct(kirby()->roots()->content());
 
-        $this->localBranch  = c::get('autogit.branch', 'master');
-        $this->remoteBranch = c::get('autogit.remote.branch', $this->localBranch);
+        $this->remoteBranch = c::get('autogit.remote.branch', 'master');
         $this->remoteName   = c::get('autogit.remote.name', 'origin');
 
-        $this->setBranch();
         $this->setUser(site()->user());
 
         static::$instance = $this;
@@ -85,12 +82,6 @@ class Autogit extends Git
         }
 
         return true;
-    }
-
-    public function setBranch($branch = null)
-    {
-        $branch = $branch ? $branch : c::get('autogit.branch', 'master');
-        $this->execute("checkout -q '{$branch}'");
     }
 
     protected function setUser($user)
