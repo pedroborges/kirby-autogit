@@ -58,6 +58,7 @@ Updating is as easy as running a few commands.
 ## Options
 The following options can be set in your `/site/config/config.php`:
 
+    c::set('autogit',                true);
     c::set('autogit.remote.name',    'origin');
     c::set('autogit.remote.branch',  'master');
 
@@ -86,6 +87,13 @@ The following options can be set in your `/site/config/config.php`:
         'file.sort'    => 'Sorted file %s',
         'file.delete'  => 'Deleted file %s',
     ]);
+
+### autogit
+Auto Git will always run by defaut, but you can disable it in any environment by setting this option to `false`.
+
+```php
+c::set('autogit', false);
+```
 
 ### autogit.remote.name
 Which remote repository to use. Defaults to `origin`.

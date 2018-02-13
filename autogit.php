@@ -10,28 +10,30 @@
  * @license   MIT
  */
 
-// Load Auto Git class and dependencies
-require_once(__DIR__.DS.'vendor'.DS.'autoload.php');
-require_once(__DIR__.DS.'lib'.DS.'autogit.php');
-
-// Helper function that returns an Autogit\Autogit instance
-function autogit() {
-    return Autogit\Autogit::instance();
-}
-
-// Load routes
-if (c::get('autogit.webhook.secret', false)) {
-    require_once(__DIR__.DS.'lib'.DS.'routes.php');
-}
-
-// Only load hooks, routes and widgets when
-// the content directory is a Git repo
-if (function_exists('panel') && autogit()->isRepo()) {
-    // Load hooks
-    require_once(__DIR__.DS.'lib'.DS.'hooks.php');
-
-    // Load widgets
-    if (c::get('autogit.widget', true)) {
-        kirby()->set('widget', 'autogit', __DIR__.DS.'widgets'.DS.'autogit');
+if (c::get('autogit', true)) {
+    // Load Auto Git class and dependencies
+    require_once(__DIR__.DS.'vendor'.DS.'autoload.php');
+    require_once(__DIR__.DS.'lib'.DS.'autogit.php');
+    
+    // Helper function that returns an Autogit\Autogit instance
+    function autogit() {
+        return Autogit\Autogit::instance();
+    }
+    
+    // Load routes
+    if (c::get('autogit.webhook.secret', false)) {
+        require_once(__DIR__.DS.'lib'.DS.'routes.php');
+    }
+    
+    // Only load hooks, routes and widgets when
+    // the content directory is a Git repo
+    if (function_exists('panel') && autogit()->isRepo()) {
+        // Load hooks
+        require_once(__DIR__.DS.'lib'.DS.'hooks.php');
+    
+        // Load widgets
+        if (c::get('autogit.widget', true)) {
+            kirby()->set('widget', 'autogit', __DIR__.DS.'widgets'.DS.'autogit');
+        }
     }
 }
