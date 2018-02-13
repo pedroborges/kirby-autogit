@@ -27,7 +27,7 @@ if (c::get('autogit', true)) {
     
     // Only load hooks, routes and widgets when
     // the content directory is a Git repo
-    if (function_exists('panel') && autogit()->isRepo()) {
+    if (function_exists('panel')) {
         // Load hooks
         require_once(__DIR__.DS.'lib'.DS.'hooks.php');
     

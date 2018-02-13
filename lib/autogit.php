@@ -62,17 +62,6 @@ class Autogit extends Git
         $this->execute("push {$this->remoteName} {$this->remoteBranch} 2>&1");
     }
 
-    public function isRepo($path = null)
-    {
-        try {
-            $this->execute('rev-parse --is-inside-work-tree');
-        } catch (Exception $e) {
-            return false;
-        }
-
-        return true;
-    }
-
     public function hasRemote($remoteName = null)
     {
         $remoteName = $remoteName ? $remoteName : $this->remoteName;
