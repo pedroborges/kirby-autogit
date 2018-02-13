@@ -1,6 +1,17 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [0.6.0] - 2018-02-13
+### Added
+- `autogit` option: disables the plugin.
+
+### Changed
+- Git `user.name` and `user.email` local configuration are no longer replaced. Instead, the plugin now sets the author with the `git commit --author` flag.
+- The plugin no longer checks if the `content` folder is a Git repo since it required an extra command to be run. Use the `autogit` option to disable the plugin when needed.
+
+### Removed
+- `autogit.branch` option: Auto Git will always use local current branch.
+
 ## [0.5.0] - 2016-07-15
 ### Added
 - `autogit()` global function.
