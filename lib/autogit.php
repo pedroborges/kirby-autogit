@@ -40,7 +40,7 @@ class Autogit extends Git
     public function add($path = false)
     {
         $path = $path ? $path : kirby()->roots()->content();
-        $this->execute('add '.escapeshellarg($path));
+        $this->execute(sprintf('add %s', escapeshellarg($path)));
     }
 
     public function commit($message)
@@ -65,7 +65,7 @@ class Autogit extends Git
     public function isRepo($path = null)
     {
         try {
-            $this->execute("rev-parse --is-inside-work-tree");
+            $this->execute('rev-parse --is-inside-work-tree');
         } catch (Exception $e) {
             return false;
         }
@@ -78,7 +78,7 @@ class Autogit extends Git
         $remoteName = $remoteName ? $remoteName : $this->remoteName;
 
         try {
-            $this->execute('config --get remote.' . $remoteName . '.url');
+            $this->execute("config --get remote.{$remoteName}.url");
         } catch (Exception $e) {
             return false;
         }

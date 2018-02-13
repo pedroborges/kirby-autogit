@@ -50,6 +50,22 @@ return [
         'file.delete'  => 'Fichier %s supprimé',
     ],
 
+    'nl' => [
+        'site.update'  => 'Site-opties aangepast',
+        'page.create'  => 'Pagina %s aangemaakt',
+        'page.update'  => 'Pagina %s geüpdate',
+        'page.delete'  => 'Pagina %s verwijderd',
+        'page.sort'    => 'Pagina %s gesorteerd',
+        'page.hide'    => 'Pagina %s verborgen',
+        'page.move'    => 'Pagina %1$s verplaatst naar %2$s',
+        'file.upload'  => 'Bestand %s geüpload',
+        'file.replace' => 'Bestand %s vervangen',
+        'file.rename'  => 'Bestand %s hernoemd',
+        'file.update'  => 'Bestand %s bijgewerkt',
+        'file.sort'    => 'Bestand %s gesorteerd',
+        'file.delete'  => 'Bestand %s verwijderd',
+    ],
+
     'pt_BR' => [
         'site.update'  => 'Alterou as opções do site',
         'page.create'  => 'Criou a página %s',
@@ -112,20 +128,5 @@ return [
         'file.update'  => 'Оновлено файо %s',
         'file.sort'    => 'Відсортовано файл %s',
         'file.delete'  => 'Видалено файл %s',
-    ],
-    'nl' => [
-        'site.update'  => 'Site-opties aangepast',
-        'page.create'  => 'Pagina %s aangemaakt',
-        'page.update'  => 'Pagina %s geüpdate',
-        'page.delete'  => 'Pagina %s verwijderd',
-        'page.sort'    => 'Pagina %s gesorteerd',
-        'page.hide'    => 'Pagina %s verborgen',
-        'page.move'    => 'Pagina %1$s verplaatst naar %2$s',
-        'file.upload'  => 'Bestand %s geüpload',
-        'file.replace' => 'Bestand %s vervangen',
-        'file.rename'  => 'Bestand %s hernoemd',
-        'file.update'  => 'Bestand %s bijgewerkt',
-        'file.sort'    => 'Bestand %s gesorteerd',
-        'file.delete'  => 'Bestand %s verwijderd',
     ],
 ];
