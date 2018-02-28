@@ -1,4 +1,6 @@
 {
+    "name": "pedroborges/kirby-autogit",
+    "type": "kirby-plugin",
     "require": {
         "sebastian/git": "^2.1"
     }
