@@ -49,11 +49,11 @@
 
 <div class="autogit-widget">
   <?php if (autogit()->hasRemote()) : ?>
-    <button href="/panel/autogit/push" data-action="push" class="btn btn-rounded btn-positive autogit-action">
+    <button data-action="push" class="btn btn-rounded btn-positive autogit-action">
       <i class="icon icon-left fa fa-cloud-upload"></i>
       Publish changes
     </button>
-    <button href="/panel/autogit/pull" data-action="pull" class="btn btn-rounded btn-positive autogit-action">
+    <button data-action="pull" class="btn btn-rounded btn-positive autogit-action">
       <i class="icon icon-left fa fa-cloud-download"></i>
       Get latest changes
     </button>
@@ -67,7 +67,7 @@
 </div>
 
 <script>
-  var panelURL = '<?php echo panel()->urls->index ?>'
+  var panelURL = '<?= panel()->urls->index ?>'
   var $widget = $('#autogit-widget')
   var $loadingIcon = $('<i class="icon icon-left fa fa-spinner" />')
   var $successIcon = $('<i class="icon icon-left fa fa-check" />')

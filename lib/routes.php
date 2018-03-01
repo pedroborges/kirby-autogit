@@ -17,7 +17,7 @@ function autogitRoute($action, $source = null) {
 }
 
 // Add widget route
-if (class_exists('Panel')) {
+if (function_exists('panel')) {
     panel()->routes([
         [
             'pattern' => 'autogit/(:any)',
@@ -36,19 +36,23 @@ if (class_exists('Panel')) {
 }
 
 // Add webhook route
-kirby()->routes([
-    [
-        'pattern' => c::get('autogit.webhook.url', 'autogit').'/(:any)',
-        'method'  => 'GET|POST',
-        'action'  => function($action) {
-            $secretMatches = r::get('secret') === c::get('autogit.webhook.secret');
-            $validActions  = ['pull', 'push'];
+if (c::get('autogit.webhook.secret', false)) {
+    kirby()->routes([
+        [
+            'pattern' => c::get('autogit.webhook.url', 'autogit').'/(:any)',
+            'method'  => 'GET|POST',
+            'action'  => function($action) {
+                $secretMatches = r::get('secret') === c::get('autogit.webhook.secret');
+                $validActions  = ['pull', 'push'];
 
-            if (! autogit()->hasRemote() or ! $secretMatches or ! in_array($action, $validActions)) {
-                return go(site()->errorPage());
+                if (! autogit()->hasRemote() or
+                    ! $secretMatches or
+                    ! in_array($action, $validActions)) {
+                    return go(site()->errorPage());
+                }
+
+                return autogitRoute($action, 'webhook');
             }
-
-            return autogitRoute($action, 'webhook');
-        }
-    ]
-]);
+        ]
+    ]);
+}

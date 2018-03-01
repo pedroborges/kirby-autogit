@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [0.6.1] - 2018-03-01
+### Fixed
+- Bug where panel routes where not being registered.
+
 ## [0.6.0] - 2018-02-13
 ### Added
 - `autogit` option: disables the plugin.

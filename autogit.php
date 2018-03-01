@@ -3,7 +3,7 @@
 /**
  * Kirby Auto Git Plugin
  *
- * @version   0.6.0
+ * @version   0.6.1
  * @author    Pedro Borges <oi@pedroborg.es>
  * @copyright Pedro Borges <oi@pedroborg.es>
  * @link      https://github.com/pedroborges/kirby-autogit
@@ -21,9 +21,7 @@ if (c::get('autogit', true)) {
     }
     
     // Load routes
-    if (c::get('autogit.webhook.secret', false)) {
-        require_once(__DIR__.DS.'lib'.DS.'routes.php');
-    }
+    require_once(__DIR__.DS.'lib'.DS.'routes.php');
     
     // Only load hooks, routes and widgets when
     // the content directory is a Git repo
