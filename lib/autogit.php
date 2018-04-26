@@ -62,6 +62,11 @@ class Autogit extends Git
         $this->execute("push {$this->remoteName} {$this->remoteBranch} 2>&1");
     }
 
+    public function getStatus()
+    {
+        return $this->execute("status 2>&1")[1];
+    }
+
     public function hasRemote($remoteName = null)
     {
         $remoteName = $remoteName ? $remoteName : $this->remoteName;
