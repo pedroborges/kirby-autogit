@@ -112,7 +112,7 @@ Auto Git provides a webhook which you can use to trigger `pull` and `push` comma
 
 ```php
 // Pick a long string
-c::get('autogit.webhook.secret', 'MySuperSecret');
+c::set('autogit.webhook.secret', 'MySuperSecret');
 ```
 
 After that, the following URLs will be available to you:
@@ -139,7 +139,7 @@ Change the webhook URL segment to something else. Defaults to `autogit`.
 
 ```php
 // https://yousite.com/webhook/pull?secret=MySuperSecret
-c::get('autogit.webhook.url', 'webhook');
+c::set('autogit.webhook.url', 'webhook');
 ```
 
 ### autogit.panel.user
