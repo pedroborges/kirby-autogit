@@ -22,9 +22,6 @@
   margin-top: .5em;
   text-align: center; }
 
-.autogit-status  {
-  display: none; }
-
 .autogit-warning {
   color: #b3000a; }
 
@@ -57,7 +54,7 @@
       <i class="icon icon-left fa fa-cloud-download"></i>
       Get latest changes
     </button>
-    <div class="autogit-status"></div>
+    <div class="autogit-status"><?= autogit()->getStatus() ?></div>
   <?php else : ?>
     <div class="autogit-warning">
       Could not detect remote repository <strong><?php echo c::get('autogit.remote.name') ?></strong>.
@@ -87,22 +84,22 @@
     $.post(panelURL + '/autogit/' + $button.data('action'))
       .done(function (res) {
         $button.find('.icon').replaceWith($successIcon)
-        $status.text(res.message).show(600)
+        $status.text(res.message).show(0)
       })
       .fail(function (res) {
         $button.find('.icon').replaceWith($errorIcon)
         $button.removeClass('btn-positive').addClass('btn-negative')
-        $status.text(res.responseJSON.message).show(600)
+        $status.text(res.responseJSON.message).show(0)
       })
       .always(function () {
         setTimeout(function () {
           $button.find('.icon').replaceWith($defaultIcon)
           $button.removeClass('btn-negative').addClass('btn-positive')
           $otherButton.prop('disabled', false)
-          $status.hide(600, function () {
+          $status.hide(0, function () {
             $(this).text('')
           })
-        }, 6000)
+        }, 10000)
       })
     })
 </script>

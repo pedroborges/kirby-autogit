@@ -55,11 +55,17 @@ class Autogit extends Git
     public function pull()
     {
         $this->execute("pull {$this->remoteName} {$this->remoteBranch} 2>&1");
+        kirby()->cache()->flush();
     }
 
     public function push()
     {
         $this->execute("push {$this->remoteName} {$this->remoteBranch} 2>&1");
+    }
+
+    public function getStatus()
+    {
+        return $this->execute("status 2>&1")[1];
     }
 
     public function hasRemote($remoteName = null)
