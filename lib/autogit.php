@@ -45,6 +45,10 @@ class Autogit extends Git
 
     public function commit($message)
     {
+        if ($this->isWorkingCopyClean()) {
+            return;
+        }
+
         $this->execute(sprintf(
             'commit --author %s --message %s',
             escapeshellarg($this->author()),
