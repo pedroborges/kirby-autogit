@@ -45,11 +45,16 @@ class Autogit extends Git
 
     public function commit($message)
     {
-        $this->execute(sprintf(
-            'commit --author %s --message %s',
-            escapeshellarg($this->author()),
-            escapeshellarg($message)
-        ));
+        $author = $this->author();
+
+        $command = sprintf(
+                '-c %s -c %s commit --author %s --message %s',
+                escapeshellarg("user.name={$author['name']}"),
+                escapeshellarg("user.email={$author['email']}"),
+                escapeshellarg("{$author['name']} <{$author['email']}>"),
+                escapeshellarg($message));
+
+        $this->execute($command);
     }
 
     public function pull()
@@ -92,7 +97,7 @@ class Autogit extends Git
             $userEmail = $user->email();
         }
 
-        return "{$userName} <{$userEmail}>";
+        return [ 'name' => $userName, 'email' => $userEmail ];
     }
 
     protected function getMessage($key, $params)
